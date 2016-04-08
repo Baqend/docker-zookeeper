@@ -1,6 +1,10 @@
 # docker-zookeeper
 The reason why we created this docker image is that we wanted to have a simple way to spin up multi-node ZooKeeper deployments. In particular, we wanted the docker container to create the ZooKeeper `myID` file autonomously, so that we could spawn ZooKeeper containers in single-line statements.  
-We are currently not aware of another easy approach to do that. 
+We are currently not aware of another easy approach to do that. More related resources:
+
+- Our [tutorial on how to use Storm with Docker Swarm](https://github.com/Baqend/tutorial-swarm-storm)
+- the [baqend/zookeeper on Docker Hub](https://hub.docker.com/r/baqend/zookeeper/)
+- the [the baqend/zookeeper on GitHub](https://github.com/Baqend/docker-zookeeper)
 
 ## Simple multi-node ensembles
 
