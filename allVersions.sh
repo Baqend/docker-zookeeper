@@ -33,6 +33,9 @@ for index in "${!allVersionsArray[@]}"; do
     if ! [[ -z "$push" ]]; then
         echo pushing $version:
         pushCmd="docker push $image:$version"
+        if [[ $version == $latest ]]; then
+            pushCmd="$pushCmd;docker push $image:latest"
+        fi
         echo "executing: $pushCmd"
         eval "$pushCmd"
     fi
