@@ -1,7 +1,9 @@
 FROM ubuntu:14.04
 MAINTAINER wingerath wolfram@wingerath.org
 
-ENV ZOOKEEPER_VERSION zookeeper-3.4.8
+# The used ZooKeeper version can also be supplied like this with the build command like this:
+# --build-arg BIN_VERSION=zookeeper-3.4.8
+ARG BIN_VERSION=zookeeper-3.4.8
 
 WORKDIR /usr/share/zookeeper
 
@@ -16,11 +18,11 @@ RUN \
    wget
 
 # Download and install ZooKeeper
-RUN wget -q -N http://mirror.dkd.de/apache/zookeeper/$ZOOKEEPER_VERSION/$ZOOKEEPER_VERSION.tar.gz
-RUN tar xzf $ZOOKEEPER_VERSION.tar.gz
-RUN rm $ZOOKEEPER_VERSION.tar.gz
+RUN wget -q -N http://mirror.dkd.de/apache/zookeeper/$BIN_VERSION/$BIN_VERSION.tar.gz
+RUN tar xzf $BIN_VERSION.tar.gz
+RUN rm $BIN_VERSION.tar.gz
 
-RUN mv $ZOOKEEPER_VERSION/* /usr/share/zookeeper
+RUN mv $BIN_VERSION/* /usr/share/zookeeper
 
 # Install Java 8
 RUN apt-get update && \

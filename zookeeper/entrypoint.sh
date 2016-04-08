@@ -37,8 +37,6 @@ do
 done
 # Finally, write config file:
 echo "$ZOOKEEPER_CONFIG" | sudo tee conf/zoo.cfg
-echo "$ZOOKEEPER_CONFIG" | sudo tee $dataDir/zoo.cfg
-cat conf/zoo.cfg
 
 # start the server:
 /bin/bash bin/zkServer.sh start-foreground
