@@ -6,11 +6,11 @@ export ZOOKEEPER_SERVERS=$1
 export ZOOKEEPER_ID=$2
 
 # create data and blog directories:
-sudo mkdir -p $dataDir
-sudo mkdir -p $dataLogDir
+mkdir -p $dataDir
+mkdir -p $dataLogDir
 
 # create myID file:
-echo "$ZOOKEEPER_ID" | sudo tee $dataDir/myid
+echo "$ZOOKEEPER_ID" | tee $dataDir/myid
 
 # now build the ZooKeeper configuration file:
 ZOOKEEPER_CONFIG=
@@ -36,7 +36,7 @@ do
     ZOOKEEPER_CONFIG="$ZOOKEEPER_CONFIG"$'\n'"server.$ZKID=$ZKIP:2888:3888"
 done
 # Finally, write config file:
-echo "$ZOOKEEPER_CONFIG" | sudo tee conf/zoo.cfg
+echo "$ZOOKEEPER_CONFIG" | tee conf/zoo.cfg
 
 # start the server:
 /bin/bash bin/zkServer.sh start-foreground
