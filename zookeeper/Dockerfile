@@ -3,7 +3,7 @@ MAINTAINER wingerath wolfram@wingerath.org
 
 # The used ZooKeeper version can also be supplied like this with the build command like this:
 # --build-arg BIN_VERSION=zookeeper-3.4.8
-ARG BIN_VERSION=zookeeper-3.5.1-alpha
+ARG BIN_VERSION=zookeeper-3.4.8
 
 WORKDIR /usr/share/zookeeper
 
