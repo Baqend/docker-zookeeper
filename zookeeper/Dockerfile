@@ -3,7 +3,7 @@ MAINTAINER wingerath wolfram@wingerath.org
 
 # The used ZooKeeper version can also be supplied like this with the build command like this:
 # --build-arg BIN_VERSION=zookeeper-3.4.8
-ARG BIN_VERSION=zookeeper-3.4.8
+ARG BIN_VERSION=zookeeper-3.4.10
 
 WORKDIR /usr/share/zookeeper
 
@@ -19,10 +19,11 @@ RUN \
 # default parameters for config file:
 ENV tickTime=2000
 ENV dataDir=/var/lib/zookeeper/
-ENV dataLogDir=/var/log/zookeeper/
+ENV dataLogDir=/var/lib/zookeeper/
 ENV clientPort=2181
 ENV initLimit=5
 ENV syncLimit=2
+ENV purgeInterval=24
 
 # add startup script
 ADD entrypoint.sh entrypoint.sh

@@ -5,7 +5,7 @@ export ZOOKEEPER_SERVERS=$1
 # the second argument provided is vat of this ZooKeeper node:
 export ZOOKEEPER_ID=$2
 
-# create data and blog directories:
+# create data and log directories:
 mkdir -p $dataDir
 mkdir -p $dataLogDir
 
@@ -20,6 +20,7 @@ ZOOKEEPER_CONFIG="$ZOOKEEPER_CONFIG"$'\n'"dataLogDir=$dataLogDir"
 ZOOKEEPER_CONFIG="$ZOOKEEPER_CONFIG"$'\n'"clientPort=$clientPort"
 ZOOKEEPER_CONFIG="$ZOOKEEPER_CONFIG"$'\n'"initLimit=$initLimit"
 ZOOKEEPER_CONFIG="$ZOOKEEPER_CONFIG"$'\n'"syncLimit=$syncLimit"
+ZOOKEEPER_CONFIG="$ZOOKEEPER_CONFIG"$'\n'"autopurge.purgeInterval=$purgeInterval"
 # Put all ZooKeeper server IPs into an array:
 IFS=', ' read -r -a ZOOKEEPER_SERVERS_ARRAY <<< "$ZOOKEEPER_SERVERS"
 export ZOOKEEPER_SERVERS_ARRAY=$ZOOKEEPER_SERVERS_ARRAY
