@@ -1,4 +1,4 @@
-FROM baqend/java
+FROM baqend/java:8u171
 MAINTAINER wingerath wolfram@wingerath.org
 
 # The used ZooKeeper version can also be supplied like this with the build command like this:
